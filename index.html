@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bingool Manthus — transforme os gols do Brasileirão em acertos e benefícios.">
+<title>Bingool — Manthus</title>
+<style>
+:root{
+--bg:#f5f3ee;--paper:#fffdf8;--ink:#25232b;--muted:#6d6a70;
+--purple:#5b4078;--purple2:#422e58;--lime:#d9f46d;--line:#dedad1;
+--max:1180px;--r:28px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(222,218,209,.65)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;font-size:24px;letter-spacing:-1.6px}.brand i{font-style:normal;color:var(--purple)}
+.navlinks{display:flex;gap:28px;font-size:13px;font-weight:800}.navlinks a:hover{color:var(--purple)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);font-weight:850;font-size:14px;cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink);color:#fff}.btn.lime{background:var(--lime);border-color:var(--lime)}
+.hero{padding:85px 0 95px}.heroGrid{display:grid;grid-template-columns:1.03fr .97fr;gap:70px;align-items:center}
+.kicker{text-transform:uppercase;letter-spacing:2.2px;font-size:11px;font-weight:950;color:var(--purple);margin-bottom:17px}
+h1{font-size:clamp(52px,7.5vw,92px);line-height:.9;letter-spacing:-6px;margin:0 0 27px;max-width:760px}h1 span{color:var(--purple)}
+.lead{font-size:19px;line-height:1.55;color:#55525a;max-width:590px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.heroMeta{display:flex;gap:28px;margin-top:35px}.metric strong{display:block;font-size:23px}.metric small{color:var(--muted);font-size:11px;font-weight:750}
+.visual{background:var(--purple);border-radius:36px;padding:22px;box-shadow:18px 20px 0 var(--lime);transform:rotate(1.5deg)}
+.cardHead{color:white;display:flex;justify-content:space-between;align-items:center;padding:3px 3px 17px}.cardHead strong{font-size:27px;letter-spacing:-1.4px}.cardHead small{font-weight:800;opacity:.75}
+.bingo{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.cell{aspect-ratio:1;background:#fff;border-radius:11px;display:flex;align-items:center;justify-content:center;text-align:center;padding:5px;font-size:10px;font-weight:950}.cell.hit{background:var(--lime);font-size:23px}.cell.free{background:#eee9e0;color:#aaa}
+.cardFoot{display:flex;justify-content:space-between;color:#fff;padding-top:15px;font-size:10px;font-weight:850}.pill{background:var(--lime);color:var(--ink);padding:7px 10px;border-radius:99px}
+.section{padding:105px 0}.white{background:#fff}.headGrid{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-bottom:52px}.section h2{font-size:clamp(40px,5.4vw,65px);line-height:.96;letter-spacing:-4px;margin:0}.copy{font-size:18px;color:var(--muted);max-width:550px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.step{padding:32px 35px 15px 0;border-right:1px solid var(--line);margin-right:35px}.step:last-child{border:0;margin:0}.stepNo{font-size:13px;color:var(--purple);font-weight:950}.step h3{font-size:23px;margin:45px 0 8px;letter-spacing:-1px}.step p{color:var(--muted);margin:0}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:20px}.rule{background:var(--bg);border-radius:var(--r);padding:30px}.rule b{font-size:17px}.rule p{color:var(--muted);margin-bottom:0}
+.playerBand{background:var(--purple);color:#fff;border-radius:42px;padding:70px}.playerBand .headGrid{margin-bottom:35px}.playerBand .copy{color:#ddd}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:10px 15px;font-weight:800;font-size:13px}.chip.hot{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.prizeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.prize{padding:31px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}.prize .num{font-size:31px;color:var(--purple);font-weight:950;letter-spacing:1px}.prize strong{font-size:40px;letter-spacing:-2px;display:block;margin:18px 0 5px}.prize p{color:var(--muted);margin:0}
+.buy{background:var(--purple2);color:#fff;border-radius:42px;padding:70px}.buyGrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}.buy h2{font-size:clamp(43px,5.5vw,68px);line-height:.94;letter-spacing:-4px;margin:0 0 20px}.buy p{color:#d9d4de}.priceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.price{background:#fff;color:var(--ink);border-radius:23px;padding:25px}.price.featured{background:var(--lime)}.price small{text-transform:uppercase;letter-spacing:1px;font-weight:950;font-size:10px}.price strong{display:block;font-size:36px;margin:12px 0}.price p{font-size:13px;color:var(--muted);margin:0}
+.faq{max-width:850px}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq summary{font-weight:850;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq p{color:var(--muted);max-width:700px}
+.final{text-align:center;padding:105px 0}.final h2{font-size:clamp(45px,6.5vw,78px);line-height:.92;letter-spacing:-5px;max-width:850px;margin:0 auto 24px}.final p{color:var(--muted);font-size:18px}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+.navlinks{display:none}.hero{padding:60px 0}.heroGrid,.headGrid,.buyGrid,.rules{grid-template-columns:1fr}.visual{transform:none;margin:15px 5px 0}.steps,.prizeGrid,.priceGrid{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);margin:0}.playerBand,.buy{padding:40px 25px}.section{padding:75px 0}.heroMeta{gap:18px;flex-wrap:wrap}h1{letter-spacing:-4px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a class="brand" href="#">MAN<i>THUS</i></a>
+<nav class="navlinks">
+<a href="#como">Como funciona</a><a href="#premios">Recompensas</a><a href="#jogadores">Jogadores</a><a href="#duvidas">Dúvidas</a>
+</nav>
+<a class="btn dark" href="#comprar">Quero uma Cartela ↗</a>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container heroGrid">
+<div>
+<div class="kicker">CLUB MANThUS apresenta</div>
+<h1>O futebol fica mais divertido quando <span>cada gol conta.</span></h1>
+<p class="lead">Bingool é a experiência da Loja Manthus que transforma os gols do Brasileirão em recompensas. Adquira sua cartela com 15 jogadores. Depois é só acompanhar os gols dos seus artilheiros.</p>
+<div class="actions"><a class="btn dark" href="#comprar">Quero uma cartela ↗</a><a class="btn" href="#como" >Como funciona ↓</a></div>
+<div class="heroMeta"><div class="metric"><strong>R$ 4,99</strong><small>POR CARTELA</small></div><div class="metric"><strong>15</strong><small>JOGADORES</small></div><div class="metric"><strong>⚽</strong><small> 1 GOL = 1 ACERTO</small></div></div>
+</div>
+<div class="visual">
+
+    <div class="cardHead">
+        <strong>BINGOOL</strong>
+        <small>EDIÇÃO BR26 DE OUTUBRO-2026</small>
+    </div>
+
+    <div class="cell">
+    <img src="bingool.jpeg" width="500" height="500" class="gabarito">
+    </div>
+
+    <div class="cardFoot">
+        <span>15 jogadores por cartela</span>
+        <span class="pill">⚽ GOL = ACERTO</span>
+    </div>
+
+</div>
+</section>
+
+<section class="section white" id="como">
+<div class="container">
+<div class="headGrid"><div><div class="kicker">Simples de ganhar</div><h2>Compre. Baixe. Acompanhe. Acerte.</h2></div><p class="copy">Você não precisa escolher quem vai marcar em cada partida. Basta acompanhar os jogadores da sua cartela e torcer para que eles balancem as redes pelo menos uma vez durante as rodadas válidas de cada edição.</p></div>
+<div class="steps">
+<div class="step"><div class="stepNo">01 / CARTELA</div><h3>Compre sua cartela</h3><p>Faça a compra na Loja Manthus e receba um link para baixar a cartela com os seus 15 jogadores.</p></div>
+<div class="step"><div class="stepNo">02 / BRASILEIRÃO</div><h3>Acompanhe os jogos</h3><p>Basta um gol dos jogadores da sua cartela para você marcar  um acerto.</p></div>
+<div class="step"><div class="stepNo">03 / RESULTADO</div><h3>Ganhe recompensas</h3><p>Ao final da edição, seus acertos são contabilizados e geram cupons de descontos para compras na Loja Manthus.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="jogadores">
+<div class="container">
+<div class="playerBand">
+<div class="headGrid"><div><div class="kicker" style="color:var(--lime)">Craques em campo</div><h2>Você acompanha os jogadores. Eles fazem os gols.</h2></div><p class="copy">A sua cartela é composta por 15 jogadores de acordo com a lista de elegíveis pré-definida em cada edição. As vendas das cartelas se encerram antes do ínicio do primeiro jogo.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section white" id="premios">
+<div class="container">
+<div class="headGrid"><div><div class="kicker">Recompensas</div><h2>Quanto mais você acerta, maior pode ser o benefício.</h2></div><p class="copy"
+    
+<div class="prizeGrid">
+<div class="prize"><div class="num">15 / ACERTOS</div><strong>CAMISA GRÁTIS <img src="camisa.png" width="250" height="250"> </strong><p>retirada na Loja Manthus*</p></div>
+<div class="prize"><div class="num">14 / ACERTOS</div><strong>20% + FRETE GRÁTIS</strong><p>em cupom da Loja Manthus</p></div>
+<div class="prize"><div class="num">13 / ACERTOS</div><strong>20%</strong><p>em cupom da Loja Manthus</p></div>
+<div class="prize"><div class="num">12 / ACERTOS</div><strong>10%</strong><p>em cupom da Loja Manthus</p></div>
+</div>
+</div>
+</section>
+
+
+<section class="section" id="comprar">
+<div class="container">
+<div class="buy">
+
+<div><div class="kicker" style="color:var(--lime)">Receba sua cartela</div><h2>Entre para o Club Manthus por apenas R$ 4,99.</h2><p>Receba sua cartela e prepare-se para acompanhar os gols dos seus artilheiros.</p><a class="btn lime" href="#" onclick="lojamanthus(event)">Comprar agora ↗</a></div>
+</div>
+</div>
+</section>
+
+<section class="section white" id="duvidas">
+<div class="container">
+<div class="headGrid"><div><div class="kicker">Dúvidas</div><h2>Antes de participar, tudo claro.</h2></div><p class="copy">O Bingool é uma promoção da Loja Manthus para engajamento dos seus clientes com distribuição de benefícios exclusivos.</p></div>
+<div class="faq">
+<details open><summary>Quando minha cartela é válida?</summary><p>A validade deve ser indicada na própria cartela e no regulamento da edição, com as rodadas e datas correspondentes.</p></details>
+<details><summary>Como um jogador gera um acerto?</summary><p>Ao marcar um gol durante o período válido é registrado como acerto na cartela.</p></details>
+<details><summary>Um jogador fez mais de um gol no jogo, são dois acertos?</summary><p>Não. Quando ele marca o primeiro gol você já registrou o acerto na cartela.</p></details>
+<details><summary>Se o jogador marcar gol em várias rodadas, tenho mais acertos?</summary><p>Não. Quando ele marca o primeiro gol você já registrou o acerto na cartela.</p></details>
+<details><summary>Como recebo meu benefício?</summary><p>Após a apuração, ao final da última rodada, quem fez 12, 13, 14 ou 15 acertos receberá por email um código de cupom de benefício exclusivo para compras na Loja Manthus, conforme o regulamento.</p></details>
+<details><summary>Posso comprar mais de uma cartela?</summary><p>Sim, cada cartela apresenta uma lista exclusiva de 15 jogadores sem repetição na cartela e também por edição.</p></details>
+</div>
+</div>
+</section>
+
+<section class="final">
+<div class="container"><div class="kicker">Bingool · Manthus</div><h2>Adquira sua cartela. Torça pelos gols. Receba recompensa.</h2><p>O próximo gol pode te aproximar de um manto.</p><div class="actions" style="justify-content:center"><a class="btn dark" href="#comprar">Adquirir cartela ↗</a></div></div>
+</section>
+</main>
+
+<footer><div class="container foot"><span>© 2026 Club Manthus · Bingool</span><span>*Consulte regulamento, validade, condições e limites de cada edição.</span></div></footer>
+
+<script>
+function lojamanthus(e) {
+e.preventDefault();
+window.location.href = "https://manthus.lojavirtualnuvem.com.br/";
+}
+</script>
+</body>
+</html>
